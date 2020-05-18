@@ -125,10 +125,9 @@ const getAllPages = async (start, finish) => {
   let page = start;
   do {
     const path = `/n64/category/999-all?page=${page}`;
-    console.log(path);
     await getCachedPage(path)
       .then(getPageItems)
-      .then((data) => saveData(data, `./db-${page}.json`))
+      .then((data) => saveData(data, `./db/db-${page}.json`))
       .then(console.log)
       .catch(console.error);
     page++;
